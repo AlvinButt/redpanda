@@ -11,6 +11,12 @@ import FirebaseDatabase
 
 typealias ProductIds = [String]
 
+enum ProductCategory : String {
+     case Name = "product-name", Desc = "product-desc", Price = "product-price", Image = "product-image"
+
+     static let allValues = [Name, Desc, Price, Image]
+}
+
 class ProductService: NSObject {
         
     static let sharedInstance = ProductService()
@@ -27,20 +33,16 @@ class ProductService: NSObject {
         
         let dispatchGroup = DispatchGroup()
         
-        var nodes:[String] = ["product-name",
-                              "product-price",
-                              "product-image",
-                              "product-desc"]
-        
         var arrProduct = [ProductModel]()
 
         for id in ids {
             
-            for node in nodes {
+            for val in ProductCategory.allValues {
                 
                 dispatchGroup.enter()
                 
-                let ref = DatabaseReference.toLocation(.product(nodeName: node, pid: id))
+                let node = val
+                let ref = DatabaseReference.toLocation(.product(nodeName: node.rawValue, pid: id))
                 ref.observeSingleEvent(of: .value, with: { (snapshot) in
                     
                     if arrProduct.count > 0 {
@@ -49,16 +51,16 @@ class ProductService: NSObject {
                         
                         if containPs.count > 0 {
                             //EXISTING PRODUCT WITH SOME DATA
-                            let name = node == "product-name" ? snapshot.value as? String : ""
+                            let name = node == .Name ? snapshot.value as? String : ""
                             containPs[0].name = containPs[0].name == "" ? name : containPs[0].name
                             
-                            let price = node == "product-price" ? snapshot.value as? Int ?? 0 : nil
+                            let price = node == .Price ? snapshot.value as? Int ?? 0 : nil
                             containPs[0].price = containPs[0].price == nil ? price : containPs[0].price
                             
-                            let desc =  node == "product-desc" ? snapshot.value as? String : ""
+                            let desc =  node == .Desc ? snapshot.value as? String : ""
                             containPs[0].desc = containPs[0].desc == "" ? desc : containPs[0].desc
                             
-                            let image = node == "product-image" ? snapshot.value as? String : ""
+                            let image = node == .Image ? snapshot.value as? String : ""
                             containPs[0].image = containPs[0].image == "" ? image : containPs[0].image
                             
                             arrProduct = arrProduct.filter { $0.id != id }
@@ -67,10 +69,10 @@ class ProductService: NSObject {
                         }else{
                             //NEW PRODUCT
                             let product = ProductModel(id: id,
-                                                       name: node == "product-name" ? snapshot.value as? String : "" ,
-                                                       price: node == "product-price" ? snapshot.value as? Int ?? 0 : nil,
-                                                       desc: node == "product-desc" ? snapshot.value as? String : "",
-                                                       image: node == "product-image" ? snapshot.value as? String : "")
+                                                       name: node == .Name ? snapshot.value as? String : "" ,
+                                                       price: node == .Price ? snapshot.value as? Int ?? 0 : nil,
+                                                       desc: node == .Desc ? snapshot.value as? String : "",
+                                                       image: node == .Image ? snapshot.value as? String : "")
                             arrProduct.append(product)
                         }
                         
@@ -78,10 +80,10 @@ class ProductService: NSObject {
                     }else{
                         //FIRST TIME
                         let product = ProductModel(id: id,
-                                                   name: node == "product-name" ? snapshot.value as? String : "" ,
-                                                   price: node == "product-price" ? snapshot.value as? Int ?? 0 : nil,
-                                                   desc: node == "product-desc" ? snapshot.value as? String : "",
-                                                   image: node == "product-image" ? snapshot.value as? String : "")
+                                                   name: node == .Name ? snapshot.value as? String : "" ,
+                                                   price: node == .Price ? snapshot.value as? Int ?? 0 : nil,
+                                                   desc: node == .Desc ? snapshot.value as? String : "",
+                                                   image: node == .Image ? snapshot.value as? String : "")
                         arrProduct.append(product)
                     }
                     

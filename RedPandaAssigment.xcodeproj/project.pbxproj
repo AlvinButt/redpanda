@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0400FA3C290ED7A000BA03EF /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0400FA3B290ED7A000BA03EF /* UIImageView.swift */; };
 		0408FA4A290EE54D00404539 /* ProductVC-Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408FA49290EE54D00404539 /* ProductVC-Delegate.swift */; };
+		042D3110290EE8FD003EDA02 /* ProductVC-LoadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D310F290EE8FD003EDA02 /* ProductVC-LoadData.swift */; };
 		045D9894290B017B007422CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D9893290B017B007422CF /* AppDelegate.swift */; };
 		045D9896290B017B007422CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D9895290B017B007422CF /* SceneDelegate.swift */; };
 		045D9898290B017B007422CF /* ProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D9897290B017B007422CF /* ProductVC.swift */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		0400FA3B290ED7A000BA03EF /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		0408FA49290EE54D00404539 /* ProductVC-Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductVC-Delegate.swift"; sourceTree = "<group>"; };
+		042D310F290EE8FD003EDA02 /* ProductVC-LoadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductVC-LoadData.swift"; sourceTree = "<group>"; };
 		045D9890290B017B007422CF /* RedPandaAssigment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedPandaAssigment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		045D9893290B017B007422CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		045D9895290B017B007422CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,7 +91,6 @@
 				045D98A7290B0302007422CF /* GoogleService-Info.plist */,
 				04E06E3A290D11940059FEB6 /* Service */,
 				04E06E3B290D11A10059FEB6 /* Setting */,
-				04E06E3C290D11A60059FEB6 /* Utils */,
 				04E06E3D290D11B90059FEB6 /* Extensions */,
 				04E06E3E290D11C20059FEB6 /* Model */,
 				04E06E3F290D11CC0059FEB6 /* View */,
@@ -118,13 +119,6 @@
 				045D989E290B017D007422CF /* LaunchScreen.storyboard */,
 			);
 			path = Setting;
-			sourceTree = "<group>";
-		};
-		04E06E3C290D11A60059FEB6 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		04E06E3D290D11B90059FEB6 /* Extensions */ = {
@@ -165,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				045D9897290B017B007422CF /* ProductVC.swift */,
+				042D310F290EE8FD003EDA02 /* ProductVC-LoadData.swift */,
 				0408FA49290EE54D00404539 /* ProductVC-Delegate.swift */,
 			);
 			path = Controller;
@@ -330,6 +325,7 @@
 			files = (
 				045D9898290B017B007422CF /* ProductVC.swift in Sources */,
 				045D9894290B017B007422CF /* AppDelegate.swift in Sources */,
+				042D3110290EE8FD003EDA02 /* ProductVC-LoadData.swift in Sources */,
 				04E06E55290D1E4E0059FEB6 /* SwiftyJSON.swift in Sources */,
 				04E06E57290D1EF80059FEB6 /* UIAlertController.swift in Sources */,
 				0400FA3C290ED7A000BA03EF /* UIImageView.swift in Sources */,
